@@ -1,45 +1,47 @@
-"use client";
-import Image from "next/image";
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
-gsap.registerPlugin(ScrollTrigger);
-import { explore1Img, explore2Img, exploreVideo } from "../utils";
+'use client';
 
-const Features: React.FC = () => {
+import Image from 'next/image';
+import React, { useRef, FC } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+import { explore1Img, explore2Img, exploreVideo } from '../utils';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Features: FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useGSAP(() => {
-    gsap.to("#exploreVideo", {
+    gsap.to('#exploreVideo', {
       scrollTrigger: {
-        trigger: "#exploreVideo",
-        toggleActions: "play pause reverse restart",
-        start: "-10% bottom",
+        trigger: '#exploreVideo',
+        toggleActions: 'play pause reverse restart',
+        start: '-10% bottom',
       },
       onComplete: () => {
         videoRef.current?.play();
       },
     });
 
-    gsap.to("#title", { y: 0, opacity: 1 });
+    gsap.to('#title', { y: 0, opacity: 1 });
 
-    gsap.to(".g_grow", {
+    gsap.to('.g_grow', {
       scale: 1,
       opacity: 1,
-      ease: "power1",
+      ease: 'power1',
       scrollTrigger: {
-        trigger: ".g_grow",
-        toggleActions: "restart reverse restart reverse",
-        start: "-10% bottom",
+        trigger: '.g_grow',
+        toggleActions: 'restart reverse restart reverse',
+        start: '-10% bottom',
         scrub: 5.5,
       },
     });
 
-    gsap.to(".g_text", {
+    gsap.to('.g_text', {
       y: 0,
       opacity: 1,
-      ease: "power2.inOut",
+      ease: 'power2.inOut',
       duration: 1,
     });
   }, []);
@@ -97,7 +99,7 @@ const Features: React.FC = () => {
               <div className="feature-text-container">
                 <div className="flex-1 flex-center">
                   <p className="feature-text g_text">
-                    iPhone 15 Pro is{" "}
+                    iPhone 15 Pro is
                     <span className="text-white">
                       the first iPhone to feature an aerospace-grade titanium
                       design
@@ -110,11 +112,12 @@ const Features: React.FC = () => {
                 <div className="flex-1 flex-center">
                   <p className="feature-text g_text">
                     Titanium has one of the best strength-to-weight ratios of
-                    any metal, making these our{" "}
+                    any metal, making these our
                     <span className="text-white">
                       lightest Pro models ever.
                     </span>
-                    You'll notice the difference the moment you pick one up.
+                    You&apos;ll notice the difference the moment you pick one
+                    up.
                   </p>
                 </div>
               </div>

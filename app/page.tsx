@@ -1,11 +1,12 @@
-import Link from "next/link";
-import Popup from "./components/Popup";
+import React from 'react';
+import Link from 'next/link';
+import Popup from './components/Popup';
 
 type SearchParamProps = {
   searchParams: Record<string, string> | null | undefined;
 };
 
-export default function Home({ searchParams }: SearchParamProps) {
+const Home = ({ searchParams }: SearchParamProps) => {
   const show = searchParams?.show;
   return (
     <section className="w-full h-full flex flex-col justify-center items-center bg-zinc-800">
@@ -17,9 +18,10 @@ export default function Home({ searchParams }: SearchParamProps) {
           <Link className="btn" href="/?show=true">
             Popup Modal
           </Link>
-          {show === "true" && <Popup />}
+          {show === 'true' && <Popup />}
         </div>
       </div>
     </section>
   );
-}
+};
+export default Home;

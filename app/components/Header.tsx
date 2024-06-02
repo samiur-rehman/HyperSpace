@@ -1,23 +1,19 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import React from "react";
-import { logoImg } from "../utils";
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { logoImg } from '../utils';
 
-export default function Header() {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
-  const [flyer, setFlyer] = React.useState(false);
-  const [flyerTwo, setFlyerTwo] = React.useState(false);
-
+const Header = () => {
   const navLists = [
     {
-      name: "Home",
-      url: "/",
+      name: 'Home',
+      url: '/',
     },
     {
-      name: "Creative",
-      url: "/creative",
+      name: 'Creative',
+      url: '/creative',
     },
   ];
 
@@ -42,4 +38,6 @@ export default function Header() {
       </nav>
     </header>
   );
-}
+};
+
+export default Header;

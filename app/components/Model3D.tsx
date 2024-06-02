@@ -1,27 +1,33 @@
-"use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useRef, useState, FC, Suspense } from "react";
-import { yellowImg } from "../utils";
-import { Canvas } from "@react-three/fiber";
-import { models, sizes } from "../constants";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import IPhone from "./IPhone";
-import Lights from "./Lights";
-import Loader from "./Loader";
+/* eslint-disable */
+'use client';
+
+import React, {
+  useRef, useState, FC, Suspense,
+} from 'react';
+import {
+  useGSAP,
+} from '@gsap/react';
+import gsap from 'gsap';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import IPhone from './IPhone';
+import Lights from './Lights';
+import Loader from './Loader';
+import { yellowImg } from '../utils';
+import { models, sizes } from '../constants';
 
 const Model3D: FC = () => {
-  const [size, setSize] = useState("small");
+  const [size, setSize] = useState('small');
   const [model, setModel] = useState({
-    title: "iPhone 15 Pro in Natural Titanium",
-    color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
+    title: 'iPhone 15 Pro in Natural Titanium',
+    color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
     img: yellowImg,
   });
 
   const cameraControl = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.to("#heading", { y: 0, opacity: 1 });
+    gsap.to('#heading', { y: 0, opacity: 1 });
   }, []);
 
   return (
@@ -48,7 +54,7 @@ const Model3D: FC = () => {
 
                 <Suspense fallback={<Loader />}>
                   <IPhone
-                    scale={size === "small" ? [15, 15, 15] : [17, 17, 17]}
+                    scale={size === 'small' ? [15, 15, 15] : [17, 17, 17]}
                     item={model}
                     size={size}
                   />
@@ -70,7 +76,7 @@ const Model3D: FC = () => {
                     className="w-6 h-6 rounded-full mx-2 cursor-pointer"
                     style={{ backgroundColor: item.color[0] }}
                     onClick={() => setModel(item)}
-                  ></li>
+                  />
                 ))}
               </ul>
 
@@ -80,8 +86,8 @@ const Model3D: FC = () => {
                     key={label}
                     className="size-btn"
                     style={{
-                      backgroundColor: size === value ? "white" : "transparent",
-                      color: size === value ? "black" : "white",
+                      backgroundColor: size === value ? 'white' : 'transparent',
+                      color: size === value ? 'black' : 'white',
                     }}
                     onClick={() => setSize(value)}
                   >

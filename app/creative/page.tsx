@@ -1,17 +1,18 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { smHeroVideo, heroVideo } from "../utils";
-import Link from "next/link";
-import Model3D from "../components/Model3D";
-import Features from "../components/Features";
+'use client';
+
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { smHeroVideo, heroVideo } from '../utils';
+import Model3D from '../components/Model3D';
+import Features from '../components/Features';
 
 const Page: React.FC = () => {
   const [videoSource, setVideoSource] = useState<string>(
-    typeof window !== "undefined" && window.innerWidth < 760
+    typeof window !== 'undefined' && window.innerWidth < 760
       ? smHeroVideo
-      : heroVideo
+      : heroVideo,
   );
 
   const handleVideoSourceSet = () => {
@@ -23,18 +24,18 @@ const Page: React.FC = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleVideoSourceSet);
+    window.addEventListener('resize', handleVideoSourceSet);
     return () => {
-      window.removeEventListener("resize", handleVideoSourceSet);
+      window.removeEventListener('resize', handleVideoSourceSet);
     };
   }, []);
 
   useGSAP(() => {
-    gsap.to("#hero", { opacity: 1, delay: 1.5 });
+    gsap.to('#hero', { opacity: 1, delay: 1.5 });
   }, []);
 
   useGSAP(() => {
-    gsap.to("#buyIPhone", { opacity: 1, y: -50, delay: 2 });
+    gsap.to('#buyIPhone', { opacity: 1, y: -50, delay: 2 });
   }, []);
 
   return (
@@ -49,7 +50,7 @@ const Page: React.FC = () => {
               className="pointer-event-none"
               autoPlay
               muted
-              playsInline={true}
+              playsInline
               key={videoSource}
             >
               <source src={videoSource} type="video/mp4" />
@@ -62,7 +63,7 @@ const Page: React.FC = () => {
           className="flex flex-col items-center opacity-0
       translate-y-20"
         >
-          <Link href={"#"} className="btn">
+          <Link href="" className="btn">
             Buy
           </Link>
           <p className="font-normal text-xl text-white">
